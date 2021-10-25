@@ -542,6 +542,7 @@
       // };
 
       function renderItems(items) {
+          const salePrice = `${(items.price) - (items.price) * (items.sale) / 100}`
         return `
         <div class="col-lg-6">
             <div class="card shadow mb-4">
@@ -552,7 +553,7 @@
                     
 
                     <div>
-                      <p class="text-primary">${(items.price) - (items.price) * (items.sale) / 100}</p>
+                      <p class="text-primary">${salePrice}</p>
                       <s class="text-secondary">${items.price}</s> <span class="text-danger">${items.sale}%</span>
                     </div>
                 </div>
