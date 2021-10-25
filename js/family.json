@@ -1,0 +1,26 @@
+[
+  {
+    "name": "jintae kim",
+    "birth": "1976,04.02",
+    "age": 0,
+    "gender": "male",
+    "father": "jd.k",
+    "mother": "ys.l"
+  },
+  {
+    "name": "nayoung huh",
+    "birth": "1976.04.07",
+    "age": 0,
+    "gender": "female",
+    "father": "tj.h",
+    "mother": "ej.j"
+  },
+  {
+    "name": "jiwoo kim",
+    "birth": "2016.03.21",
+    "age": 0,
+    "gender": "female",
+    "father": "jt.k",
+    "mother": "ny.h"
+  }
+]

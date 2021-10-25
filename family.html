@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Cards</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <div id="content-wrapper">
+        <div id="contents">
+
+          <div id="app" class="container-fluid mt-4"></div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+      //var apiKey = "api-key"
+      var famRequest = new XMLHttpRequest;
+
+      famRequest.open("GET", "./js/family.json");
+      //famRequest.setRequestHeader("api-key-name", apiKey);
+
+      famRequest.onload = function() {
+        var ourData = JSON.parse(famRequest.responseText);
+        console.log(ourData);
+        //familyRender(ourData);
+
+        function familyRender(data) {
+          return `
+          <div class="fm-card">
+            <dl>
+              <dt>${data.name}</dt>
+              <dd>${data.birth}</dd>
+              <dd>${data.age}</dd>
+              <dd>${data.gender}</dd>
+              <dd>${data.father}</dd>
+              <dd>${data.mother}</dd>
+            </dl>
+          </div>
+          `
+        }
+  
+        document.getElementById("app").innerHTML = `
+         ${ourData.map(familyRender).join("")}
+        `;
+      };
+
+      famRequest.send();
+
+
+      /*const famData = [
+        {
+          "name": "jintae kim",
+          "birth": "1976,04.02",
+          "age": 0,
+          "gender": "male",
+          "father": "jd.k",
+          "mother": "ys.l"
+        },
+        {
+          "name": "nayoung huh",
+          "birth": "1976.04.07",
+          "age": 0,
+          "gender": "female",
+          "father": "tj.h",
+          "mother": "ej.j"
+        },
+        {
+          "name": "jiwoo kim",
+          "birth": "2016.03.21",
+          "age": 0,
+          "gender": "female",
+          "father": "jt.k",
+          "mother": "ny.h"
+        }
+      ];*/
+
+    </script>
+
+</body>
+
+</html>
