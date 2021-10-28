@@ -32,6 +32,22 @@
 
           <div id="app" class="container-fluid mt-4"></div>
 
+          <div>
+            <form id="form" action="" method="get">
+              <ul>
+                <li><label for="">Name</label> <input type="text" name="name"></li>
+                <li><label for="">Birth</label> <input type="text" name="birth"></li>
+                <li><label for="">Age</label> <input type="text" name="age"></li>
+                <li><label for="">Gender</label> <input type="text" name="gender"></li>
+                <li><label for="">Father</label> <input type="text" name="father"></li>
+                <li><label for="">Mother</label> <input type="text" name="mother"></li>
+                <li><label for="">fav</label> <input type="text" name="favorite"></li>
+              </ul>
+
+              <button type="submit" id="submit">Save</button>
+            </form>
+          </div>
+
         </div>
       </div>
 
@@ -75,6 +91,7 @@
               <dd>${data.gender}</dd>
               <dd>${data.father}</dd>
               <dd>${data.mother}</dd>
+              <dd>${(data.favorite).join(" / ")}</dd>
             </dl>
           </div>
           `
@@ -114,6 +131,67 @@
           "mother": "ny.h"
         }
       ];*/
+
+      const submit = document.getElementById("submit");
+
+      const getFormData = () => {
+        const form = document.getElementById("form");
+        return new FormData(form);
+      }
+
+      const toJson = function(event) {
+        const formData = getFormData();
+        event.preventDefault();
+        let object = {};
+        formData.forEach((value, key) => {
+          if (!Reflect.has(object, key)) {
+            object[key] = value;
+            return;
+          }
+          if (!Array.isArray(object[key])) {
+            object[key] = [object[key]];
+          }
+          object[key].push(value);
+        });
+
+        //var fileObject = getFile();
+
+        // reCreate new Object and set File Data into it
+        /*var newObject  = {
+          'lastModified'     : fileObject.lastModified,
+          'lastModifiedDate' : fileObject.lastModifiedDate,
+          'name'             : fileObject.name,
+          'size'             : fileObject.size,
+          'type'             : fileObject.type
+        };  */
+
+        //let json = JSON.stringify(object);
+        //console.log(json);
+
+        var json = JSON.stringify(object);
+        console.log(json);
+        //familyRender(ourData);
+
+        function familyRender(data) {
+          return `
+          <div class="fm-card">
+            <dl>
+              <dt>${data.name}</dt>
+              <dd>${data.birth}</dd>
+              <dd>${data.age}</dd>
+              <dd>${data.gender}</dd>
+              <dd>${data.father}</dd>
+              <dd>${data.mother}</dd>
+              <dd>${(data.favorite).join(" / ")}</dd>
+            </dl>
+          </div>
+          `
+        }
+  
+        document.getElementById("app").innerHTML = '';
+      };
+      
+      submit.addEventListener("click", toJson);
 
     </script>
 

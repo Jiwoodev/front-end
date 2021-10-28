@@ -5,7 +5,8 @@
     "age": 0,
     "gender": "male",
     "father": "jd.k",
-    "mother": "ys.l"
+    "mother": "ys.l",
+    "favorite": ["games", "books", "app developement"]
   },
   {
     "name": "nayoung huh",
@@ -13,7 +14,8 @@
     "age": 0,
     "gender": "female",
     "father": "tj.h",
-    "mother": "ej.j"
+    "mother": "ej.j",
+    "favorite": ["cooks", "painting", "drama"]
   },
   {
     "name": "jiwoo kim",
@@ -21,6 +23,7 @@
     "age": 0,
     "gender": "female",
     "father": "jt.k",
-    "mother": "ny.h"
+    "mother": "ny.h",
+    "favorite": ["plaing", "painting", "youtube"]
   }
 ]
